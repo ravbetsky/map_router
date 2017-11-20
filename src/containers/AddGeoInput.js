@@ -1,7 +1,7 @@
 import React from 'react';
 import {form, FormControl} from 'react-bootstrap';
- 
-const Search = () => (
+
+const AddGeoInput = () => (
     <form>
         <FormControl
             type="text"
@@ -9,4 +9,4 @@ const Search = () => (
     </form>
 );
 
-export default Search;
+export default AddGeoInput;

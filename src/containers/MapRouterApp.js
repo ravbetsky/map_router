@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Col } from 'react-bootstrap';
-import MyMap from './MyMap';
-import Search from './Search';
+import MapRouter from './MapRouter';
+import AddGeoInput from './AddGeoInput';
 import style from 'bootstrap/dist/css/bootstrap.css';
 
-class App extends Component {
+class MapRouterApp extends Component {
   render() {
     return (
       <div>
         <Col xs={12} md={4}>
-          <Search />
+          <AddGeoInput />
         </Col>
         <Col xs={12} md={8}>
-          <MyMap />
+          <MapRouter />
         </Col>
       </div>
     );
   }
 }
 
-export default App;
+export default MapRouterApp;
