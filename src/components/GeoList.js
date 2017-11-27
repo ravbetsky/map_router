@@ -1,31 +1,23 @@
 import React, { Component } from 'react';
-import GeoListItem from './GeoListItem';
-import { map } from 'lodash';
+import GeoListSortableItem from './GeoListItem';
+import { SortableContainer } from 'react-sortable-hoc';
 
 class GeoList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      draggingIndex: null,
-      data: this.props.geos
-    };
-  }
   render() {
-    const { draggingIndex, data } = this.state
+    const { items } = this.props
     return (
       <div>
         {
-          map(this.props.geolist, (geo) => {
+          this.props.geos.map( (idx, index) => {
+            const geo = this.props.geolist[idx]
             return (
-              <GeoListItem
-                key={geo.id}
-                sortId={geo.id}
-                id={geo.id}
-                items={data}
-                outline="list"
-                draggingIndex={draggingIndex}
+              <GeoListSortableItem
+                key={idx}
+                value={idx}
+                index={index}
                 name={geo.name}
-                {...this.props.actions} />
+                actions={this.props.actions}
+              />
             );
           })
         }
@@ -34,4 +26,15 @@ class GeoList extends Component {
   }
 }
 
-export default GeoList;
+const GeoListSortable = SortableContainer(GeoList)
+
+class SortableComponent extends Component {
+  onSortEnd = ({oldIndex, newIndex}) => {
+    this.props.actions.sortGeoList(oldIndex, newIndex)
+  };
+  render() {
+    return <GeoListSortable onSortEnd={this.onSortEnd} {...this.props}/>;
+  }
+}
+
+export default SortableComponent;

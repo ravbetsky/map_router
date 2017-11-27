@@ -1,21 +1,10 @@
 import * as types from '../constants/ActionTypes';
 import { omit, uniqueId } from 'lodash'
+import { arrayMove } from 'react-sortable-hoc';
 
 const initialState = {
-  geos: [1, 2, 3],
+  geos: [],
   geosById: {
-    1: {
-      id: 1,
-      name: "Москва"
-    },
-    2: {
-      id: 2,
-      name: "Ульяновск"
-    },
-    3: {
-      id: 3,
-      name: "Санкт-Петербург"
-    }
   }
 };
 
@@ -43,7 +32,8 @@ export default function geos(state = initialState, action) {
 
     case types.SORT_GEOLIST:
       return {
-        ...state
+        ...state,
+        geos: arrayMove(state.geos, action.oldIndex, action.newIndex)
       }
 
     case types.DELETE_GEO:

@@ -21,9 +21,10 @@ export function moveGeo(id) {
   };
 }
 
-export function sortGeoList(id) {
+export function sortGeoList(oldIndex, newIndex) {
   return {
     type: types.SORT_GEOLIST,
-    id
+    oldIndex,
+    newIndex
   };
 }
