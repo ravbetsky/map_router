@@ -10,11 +10,6 @@ class GeoList extends Component {
       data: this.props.geos
     };
   }
-
-  updateState = (obj) => {
-    this.setState(obj);
-  }
-
   render() {
     const { draggingIndex, data } = this.state
     return (
@@ -26,7 +21,6 @@ class GeoList extends Component {
                 key={geo.id}
                 sortId={geo.id}
                 id={geo.id}
-                updateState={this.updateState}
                 items={data}
                 outline="list"
                 draggingIndex={draggingIndex}
