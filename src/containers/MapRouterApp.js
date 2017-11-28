@@ -22,7 +22,13 @@ class MapRouterApp extends Component {
       <div>
         <Col xs={12} md={4}>
           <AddGeoInput addGeo={actions.addGeo} />
-          <SortableComponent geos={geos} geolist={geosById} actions={actions} />
+          <SortableComponent
+            geos={geos}
+            geolist={geosById}
+            actions={actions}
+            distance={5}
+            lockAxis="y"
+          />
         </Col>
         <Col xs={12} md={8}>
           <MapRouter />
