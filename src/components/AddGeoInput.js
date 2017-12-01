@@ -26,7 +26,7 @@ class AddGeoInput extends Component {
 
   onKeyDown = (e) => {
     const { value, suggestions } = this.state;
-    if (e.keyCode == 13 && suggestions.length > 0) {
+    if (e.keyCode === 13 && suggestions.length > 0) {
       const correctSuggestion = suggestions.filter( item => item.name === value )
       const geoObject = correctSuggestion.length > 0 ? correctSuggestion[0] : suggestions[0]
       const { name, point } = geoObject

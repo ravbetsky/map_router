@@ -1,24 +1,6 @@
 import * as types from '../constants/ActionTypes';
-import { omit, findKey, extend } from 'lodash'
+import { omit, findKey, extend, isEqual } from 'lodash'
 import { arrayMove } from 'react-sortable-hoc';
-
-// const initialState = {
-//   geos: [3, 1, 2],
-//   geosById: {
-//     1: {
-//       id: 1,
-//       name: "Москва"
-//     },
-//     2: {
-//       id: 2,
-//       name: "Казань"
-//     },
-//     3: {
-//       id: 3,
-//       name: "Ульяновск"
-//     }
-//   }
-// };
 
 const initialState = {
   geos: [],
@@ -30,7 +12,7 @@ export default function geos(state = initialState, action) {
   switch (action.type) {
 
     case types.ADD_GEO:
-      if(findKey(state.geosById, (obj) => obj.name === action.name)) {
+      if(findKey(state.geosById, (obj) => isEqual(obj.point, action.coordinates))) {
         return {
           ...state
         }

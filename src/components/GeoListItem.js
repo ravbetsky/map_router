@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { SortableElement } from 'react-sortable-hoc';
 import { Glyphicon } from 'react-bootstrap';
 
