@@ -1,9 +1,10 @@
 import * as types from '../constants/ActionTypes';
 
-export function addGeo(name) {
+export function addGeo(name, coordinates) {
   return {
     type: types.ADD_GEO,
-    name
+    name,
+    coordinates
   };
 }
 
@@ -14,10 +15,11 @@ export function deleteGeo(id) {
   };
 }
 
-export function moveGeo(id) {
+export function moveGeo(currentId, name) {
   return {
     type: types.MOVE_GEO,
-    id
+    currentId,
+    name
   };
 }
 

@@ -2,21 +2,27 @@ import * as types from '../constants/ActionTypes';
 import { omit, findKey, extend } from 'lodash'
 import { arrayMove } from 'react-sortable-hoc';
 
+// const initialState = {
+//   geos: [3, 1, 2],
+//   geosById: {
+//     1: {
+//       id: 1,
+//       name: "Москва"
+//     },
+//     2: {
+//       id: 2,
+//       name: "Казань"
+//     },
+//     3: {
+//       id: 3,
+//       name: "Ульяновск"
+//     }
+//   }
+// };
+
 const initialState = {
-  geos: [3, 1, 2],
+  geos: [],
   geosById: {
-    1: {
-      id: 1,
-      name: "Москва"
-    },
-    2: {
-      id: 2,
-      name: "Казань"
-    },
-    3: {
-      id: 3,
-      name: "Ульяновск"
-    }
   }
 };
 
@@ -29,7 +35,7 @@ export default function geos(state = initialState, action) {
           ...state
         }
       }
-      const newId = Math.max(...state.geos) + 1
+      const newId = state.geos.length === 0 ? 0 : Math.max(...state.geos) + 1
       return {
         ...state,
         geos: state.geos.concat(newId),
@@ -37,7 +43,8 @@ export default function geos(state = initialState, action) {
           ...state.geosById,
           [newId]: {
             id: newId,
-            name: action.name
+            name: action.name,
+            point: action.coordinates
           }
         }
       }

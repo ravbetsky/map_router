@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Col } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import * as GeosActions from '../actions/GeosActions';
 import MapRouter from '../components/MapRouter';
 import SortableComponent from '../components/GeoList';
@@ -31,7 +31,10 @@ class MapRouterApp extends Component {
           />
         </Col>
         <Col xs={12} md={8}>
-          <MapRouter />
+          <MapRouter
+            geos={geos}
+            geolist={geosById}
+          />
         </Col>
       </div>
     );

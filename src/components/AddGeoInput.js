@@ -3,11 +3,11 @@ import Autosuggest from 'react-autosuggest';
 
 const renderSuggestion = suggestion => (
   <div>
-    {suggestion}
+    {suggestion.name}
   </div>
 );
 
-const getSuggestionValue = suggestion => suggestion;
+const getSuggestionValue = suggestion => suggestion.name;
 
 class AddGeoInput extends Component {
   constructor() {
@@ -25,9 +25,12 @@ class AddGeoInput extends Component {
   };
 
   onKeyDown = (e) => {
-    const { value } = this.state;
-    if (e.keyCode == 13) {
-      this.props.addGeo(value);
+    const { value, suggestions } = this.state;
+    if (e.keyCode == 13 && suggestions.length > 0) {
+      const correctSuggestion = suggestions.filter( item => item.name === value )
+      const geoObject = correctSuggestion.length > 0 ? correctSuggestion[0] : suggestions[0]
+      const { name, point } = geoObject
+      this.props.addGeo(name, point);
     }
   };
 
@@ -38,7 +41,12 @@ class AddGeoInput extends Component {
 
     geocoder.then( res => {
       this.setState({
-        suggestions: res.geoObjects.toArray().map( result => result.getAddressLine() )
+        suggestions: res.geoObjects.toArray().map( result => {
+          return {
+            'name': result.getAddressLine(),
+            'point': result.geometry.getCoordinates()
+          }
+        })
       })
     })
   };

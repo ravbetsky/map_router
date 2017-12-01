@@ -4,16 +4,14 @@ import { SortableElement } from 'react-sortable-hoc';
 import { Glyphicon } from 'react-bootstrap';
 
 class GeoListItem extends Component {
-  handleDelete = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
+  handleDelete = () => {
     this.props.actions.deleteGeo(this.props.id)
   }
   render() {
     return (
       <div>
         {this.props.name}
-        <a onClick={this.handleDelete}><Glyphicon glyph="remove" /></a>
+        <Glyphicon glyph="remove" onClick={this.handleDelete}/>
       </div>
     )
   }

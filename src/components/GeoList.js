@@ -13,9 +13,10 @@ class GeoList extends Component {
             return (
               <GeoListSortableItem
                 key={idx}
-                value={idx}
+                id={idx}
                 index={index}
                 name={geo.name}
+                pressDelay={100}
                 actions={this.props.actions}
               />
             );
