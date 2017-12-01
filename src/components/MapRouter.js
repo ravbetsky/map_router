@@ -26,7 +26,7 @@ class Router extends GeoObject {
 class MapRouter extends Component {
   render() {
     const { geos, geolist } = this.props
-    const centerCoordinates = geos.length > 0 ? geolist[geos.length - 1].point : [55.74954, 37.621587]
+    const centerCoordinates = geos.length > 0 ? geolist[geos[geos.length - 1]].point : [55.74954, 37.621587]
     const mapState = { center: centerCoordinates, zoom: 10}
     return (
       <YMaps>

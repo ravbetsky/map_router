@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import GeoListSortableItem from './GeoListItem';
-import { ButtonGroup } from 'react-bootstrap';
 import { SortableContainer } from 'react-sortable-hoc';
 
 class GeoList extends Component {
   render() {
-    const { items } = this.props
+    const { items, geos} = this.props
     return (
       <div>
         {
-          this.props.geos.map( (idx, index) => {
+          geos.map( (idx, index) => {
             const geo = this.props.geolist[idx]
             return (
               <GeoListSortableItem
@@ -17,7 +16,6 @@ class GeoList extends Component {
                 id={idx}
                 index={index}
                 name={geo.name}
-                pressDelay={100}
                 actions={this.props.actions}
               />
             );
