@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 import Autosuggest from 'react-autosuggest';
 
 const renderSuggestion = suggestion => (

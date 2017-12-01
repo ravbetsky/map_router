@@ -1,0 +1,61 @@
+.map-router {
+  margin: 20px 0 38px;
+  padding: 30px 40px;
+  background: #fff;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, .4);
+}
+.react-autosuggest__container {
+  position: relative;
+  margin-bottom: 10px;
+  z-index: 9999;
+}
+.map-router__geos {
+  margin-bottom: 10px;
+}
+.react-autosuggest__suggestions-list {
+  list-style: none;
+  padding-left: 0;
+  border: 1px solid #ccc;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+.react-autosuggest__suggestion {
+  padding: 4px 12px 4px 12px;
+  border-top: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+}
+.react-autosuggest__suggestion--highlighted {
+  background-color: #f1f1f1;
+}
+.react-autosuggest__suggestion:first-child {
+  border-top: none;
+}
+.map-router__geo {
+  padding: 4px 12px 4px 12px;
+  border: 1px solid #ccc;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  margin-top: -1px;
+}
+.map-router__geo .glyphicon {
+  cursor: pointer;
+  color: #ccc;
+  right: 5px;
+  top: 0;
+  bottom: 0;
+  height: 14px;
+  width: 14px;
+  margin: auto 0;
+  position: absolute;
+}
+body {
+  background-color: transparent !important;
+}
+html {
+  height: 100%;
+  background-color: #f3f1ed;
+}

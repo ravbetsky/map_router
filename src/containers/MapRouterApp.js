@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Col } from 'react-bootstrap';
+import { Col, Grid, Row } from 'react-bootstrap';
 import * as GeosActions from '../actions/GeosActions';
 import MapRouter from '../components/MapRouter';
 import SortableComponent from '../components/GeoList';
 import AddGeoInput from '../components/AddGeoInput';
-import style from 'bootstrap/dist/css/bootstrap.css';
+import styles from './MapRouterApp.css';
 
 class MapRouterApp extends Component {
   static propTypes = {
@@ -18,24 +18,32 @@ class MapRouterApp extends Component {
     const actions = bindActionCreators(GeosActions, dispatch);
 
     return (
-      <div>
-        <Col xs={12} md={4}>
-          <AddGeoInput addGeo={actions.addGeo} />
-          <SortableComponent
-            geos={geos}
-            geolist={geosById}
-            actions={actions}
-            distance={5}
-            lockAxis="y"
-          />
-        </Col>
-        <Col xs={12} md={8}>
-          <MapRouter
-            geos={geos}
-            geolist={geosById}
-          />
-        </Col>
-      </div>
+      <Grid>
+        <div className={'map-router'}>
+          <Row>
+            <Col xs={12} sm={5} md={4}>
+              <div className={'map-router__geos'}>
+                <AddGeoInput addGeo={actions.addGeo} />
+                <SortableComponent
+                  geos={geos}
+                  geolist={geosById}
+                  actions={actions}
+                  distance={5}
+                  lockAxis="y"
+                />
+              </div>
+            </Col>
+            <Col xs={12} sm={7} md={8}>
+              <div className={'map-router__map'}>
+                <MapRouter
+                  geos={geos}
+                  geolist={geosById}
+                />
+              </div>
+            </Col>
+          </Row>
+        </div>
+      </Grid>
     );
   }
 }

@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import MapRouterApp from './MapRouterApp';
 import * as reducers from '../reducers';
 
+import style from 'bootstrap/dist/css/bootstrap.css';
+
 const reducer = combineReducers(reducers);
 const store = createStore(reducer);
 

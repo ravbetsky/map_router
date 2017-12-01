@@ -8,7 +8,7 @@ class GeoListItem extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={'map-router__geo'}>
         {this.props.name}
         <Glyphicon glyph="remove" onClick={this.handleDelete}/>
       </div>

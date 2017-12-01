@@ -30,7 +30,7 @@ class MapRouter extends Component {
     const mapState = { center: centerCoordinates, zoom: 10}
     return (
       <YMaps>
-        <Map state={mapState}>
+        <Map state={mapState} width="100%">
           <Router {...this.props} />
         </Map>
       </YMaps>

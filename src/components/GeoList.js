@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GeoListSortableItem from './GeoListItem';
+import { ButtonGroup } from 'react-bootstrap';
 import { SortableContainer } from 'react-sortable-hoc';
 
 class GeoList extends Component {
